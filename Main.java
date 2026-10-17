@@ -46,7 +46,6 @@ public class Main {
                                 System.out.println("Error: " + e.getMessage());
                             }
                         }
-                        group.addMember(mId, mName);
                         System.out.println("Member added successfully!");
 
                         break;
@@ -82,7 +81,9 @@ public class Main {
                             System.out.println("Everyone is fully paid up for this week!");
                         } else {
                             for (Map.Entry<String, Double> entry : currentOwes.entrySet()) {
-                                System.out.println("- " + entry.getKey() + " owes: " + entry.getValue());
+                                String memberIdOrKey = entry.getKey();
+                                double amountOwed = entry.getValue();
+                                System.out.println("- " + memberIdOrKey+ " owes: " + amountOwed);
                             }
                         }
                         break;

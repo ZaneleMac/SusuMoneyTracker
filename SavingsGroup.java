@@ -11,6 +11,9 @@ public class SavingsGroup {
     private List<String> payoutHistory;
 
     public SavingsGroup(String groupName, double weeklyContribution) {
+        if (weeklyContribution <= 0) {
+        throw new IllegalArgumentException("Fixed weekly contribution amount must be greater than zero.");
+    }
         this.groupName = groupName;
         this.weeklyContribution = weeklyContribution;
         this.currentWeek = 1;
