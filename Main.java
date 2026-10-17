@@ -31,12 +31,24 @@ public class Main {
             try {
                 switch (choice) {
                     case "1":
-                        System.out.print("Enter Member ID: ");
-                        String mId = scanner.nextLine();
-                        System.out.print("Enter Member Name: ");
-                        String mName = scanner.nextLine();
+                        boolean memberAdded = false;
+                        String mId = "";
+                        String mName = "";
+                        while (!memberAdded) {
+                            System.out.print("Enter Member ID: ");
+                            mId = scanner.nextLine();
+                            System.out.print("Enter Member Name: ");
+                            mName = scanner.nextLine();
+                            try {
+                                group.addMember(mId, mName);
+                                memberAdded = true;
+                            } catch (IllegalArgumentException e) {
+                                System.out.println("Error: " + e.getMessage());
+                            }
+                        }
                         group.addMember(mId, mName);
                         System.out.println("Member added successfully!");
+
                         break;
                     case "2":
                         System.out.print("Enter Member ID: ");

@@ -24,8 +24,15 @@ public class SavingsGroup {
             throw new IllegalArgumentException("ID and Name cannot be empty.");
         }
         for (Member m : members) {
-            if (m.getId().equals(id) || m.getName().equalsIgnoreCase(name)) {
+            if (m.getId().equals(id)) {
                 throw new IllegalArgumentException("Member already exists.");
+            }
+            if (m.getName().equalsIgnoreCase(name)) {
+                throw new IllegalArgumentException("Name already exists. Try a different name .");
+            }
+
+            if (m.getName().equalsIgnoreCase(name)) {
+                throw new IllegalArgumentException("Name already exists. Try a different name .");
             }
         }
         members.add(new Member(id, name));
